@@ -23,18 +23,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/api/project")
 public class ProjectController {
 
-    private final PropertiesClient propertiesClient = new PropertiesClient();
-    private final JiraOAuthClient jiraOAuthClient = new JiraOAuthClient(propertiesClient);
-    private final OAuthClient oAuthClient = new OAuthClient(propertiesClient, jiraOAuthClient);
+    private final OAuthClient oAuthClient = new OAuthClient();
 
     @Autowired
     private ProjectService projectService;
 
     @Autowired
     private ExternalTrackerService externalTrackerService;
-
-    public ProjectController() throws Exception {
-    }
 
     @GetMapping("ext-service/{extServiceId}")
     @ResponseStatus(HttpStatus.OK)
