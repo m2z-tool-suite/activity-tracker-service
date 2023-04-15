@@ -1,4 +1,4 @@
-package com.m2z.activity.tracker.controller.impl;
+package com.m2z.activity.tracker.controller;
 
 import com.google.api.client.auth.oauth.OAuthGetAccessToken;
 

@@ -1,4 +1,4 @@
-package com.m2z.activity.tracker.controller.impl;
+package com.m2z.activity.tracker.controller;
 
 import com.google.api.client.auth.oauth.OAuthRsaSigner;
 import com.google.api.client.http.apache.ApacheHttpTransport;
@@ -34,15 +34,15 @@ public class JiraOAuthTokenFactory {
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeySpecException
      */
-    public JiraOAuthGetAccessToken getJiraOAuthGetAccessToken(String tmpToken, String secret, String consumerKey, String privateKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        JiraOAuthGetAccessToken accessToken = new JiraOAuthGetAccessToken(accessTokenUrl);
-        accessToken.consumerKey = consumerKey;
-        accessToken.signer = getOAuthRsaSigner(privateKey);
-        accessToken.transport = new ApacheHttpTransport();
-        accessToken.verifier = secret;
-        accessToken.temporaryToken = tmpToken;
-        return accessToken;
-    }
+//    public JiraOAuthGetAccessToken getJiraOAuthGetAccessToken(String tmpToken, String secret, String consumerKey, String privateKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
+//        JiraOAuthGetAccessToken accessToken = new JiraOAuthGetAccessToken(accessTokenUrl);
+//        accessToken.consumerKey = consumerKey;
+//        accessToken.signer = getOAuthRsaSigner(privateKey);
+//        accessToken.transport = new ApacheHttpTransport();
+//        accessToken.verifier = secret;
+//        accessToken.temporaryToken = tmpToken;
+//        return accessToken;
+//    }
 
 
     /**
@@ -56,14 +56,14 @@ public class JiraOAuthTokenFactory {
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeySpecException
      */
-    public JiraOAuthGetTemporaryToken getTemporaryToken(String consumerKey, String privateKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        JiraOAuthGetTemporaryToken oAuthGetTemporaryToken = new JiraOAuthGetTemporaryToken(requestTokenUrl);
-        oAuthGetTemporaryToken.consumerKey = consumerKey;
-        oAuthGetTemporaryToken.signer = getOAuthRsaSigner(privateKey);
-        oAuthGetTemporaryToken.transport = new ApacheHttpTransport();
-        oAuthGetTemporaryToken.callback = "oob";
-        return oAuthGetTemporaryToken;
-    }
+//    public JiraOAuthGetTemporaryToken getTemporaryToken(String consumerKey, String privateKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
+//        JiraOAuthGetTemporaryToken oAuthGetTemporaryToken = new JiraOAuthGetTemporaryToken(requestTokenUrl);
+//        oAuthGetTemporaryToken.consumerKey = consumerKey;
+//        oAuthGetTemporaryToken.signer = getOAuthRsaSigner(privateKey);
+//        oAuthGetTemporaryToken.transport = new ApacheHttpTransport();
+//        oAuthGetTemporaryToken.callback = "oob";
+//        return oAuthGetTemporaryToken;
+//    }
 
     /**
      * @param privateKey private key in PKCS8 format
@@ -71,11 +71,11 @@ public class JiraOAuthTokenFactory {
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeySpecException
      */
-    private OAuthRsaSigner getOAuthRsaSigner(String privateKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        OAuthRsaSigner oAuthRsaSigner = new OAuthRsaSigner();
-        oAuthRsaSigner.privateKey = getPrivateKey(privateKey);
-        return oAuthRsaSigner;
-    }
+//    private OAuthRsaSigner getOAuthRsaSigner(String privateKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
+//        OAuthRsaSigner oAuthRsaSigner = new OAuthRsaSigner();
+//        oAuthRsaSigner.privateKey = getPrivateKey(privateKey);
+//        return oAuthRsaSigner;
+//    }
 
     /**
      * Creates PrivateKey from string
@@ -85,11 +85,11 @@ public class JiraOAuthTokenFactory {
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeySpecException
      */
-    private PrivateKey getPrivateKey(String privateKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        byte[] privateBytes = Base64.decodeBase64(privateKey);
-        PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(privateBytes);
-        KeyFactory kf = KeyFactory.getInstance("RSA");
-
-        return kf.generatePrivate(keySpec);
-    }
+//    private PrivateKey getPrivateKey(String privateKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
+//        byte[] privateBytes = Base64.decodeBase64(privateKey);
+//        PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(privateBytes);
+//        KeyFactory kf = KeyFactory.getInstance("RSA");
+//
+//        return kf.generatePrivate(keySpec);
+//    }
 }

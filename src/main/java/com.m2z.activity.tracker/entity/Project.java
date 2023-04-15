@@ -1,16 +1,20 @@
 package com.m2z.activity.tracker.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 
 @Entity
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +22,6 @@ public class Project {
     
     private String name;
 
-    private String consumerKey;
-    private String jiraHome;
-    private String privateKey;
-    private String email;
-    private String password;
+    @ManyToOne
+    private ExternalTracker externalTracker;
 }

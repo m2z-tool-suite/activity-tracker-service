@@ -1,7 +1,8 @@
-package com.m2z.activity.tracker.config;
+package com.m2z.activity.tracker.controller;
 
 import com.atlassian.jira.rest.client.api.JiraRestClient;
 import com.atlassian.jira.rest.client.internal.async.AsynchronousJiraRestClientFactory;
+import com.m2z.activity.tracker.config.BearerHttpAuthenticationHandler;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
