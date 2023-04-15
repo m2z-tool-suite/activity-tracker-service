@@ -1,34 +1,16 @@
 package com.m2z.activity.tracker.controller;
 
-import com.google.api.client.auth.oauth.OAuthParameters;
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpRequest;
-import com.google.api.client.http.HttpRequestFactory;
-import com.google.api.client.http.HttpResponse;
-import com.google.api.client.http.javanet.NetHttpTransport;
-import com.google.api.client.http.json.JsonHttpContent;
-import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.repackaged.org.apache.commons.codec.binary.Base64;
 import com.m2z.activity.tracker.config.CryptUtils;
 import com.m2z.activity.tracker.dto.ExternalTrackerDto;
 import com.m2z.activity.tracker.entity.Project;
-import org.codehaus.jettison.json.JSONObject;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import java.io.IOException;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Optional;
-import java.util.Scanner;
 
-import static com.m2z.activity.tracker.controller.PropertiesClient.ACCESS_TOKEN;
-import static com.m2z.activity.tracker.controller.PropertiesClient.CONSUMER_KEY;
-import static com.m2z.activity.tracker.controller.PropertiesClient.PRIVATE_KEY;
-import static com.m2z.activity.tracker.controller.PropertiesClient.REQUEST_TOKEN;
-import static com.m2z.activity.tracker.controller.PropertiesClient.SECRET;
 
 
 public class OAuthClient {
