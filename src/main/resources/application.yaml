@@ -8,14 +8,5 @@ spring:
         generate-ddl: true
         show-sql: false
 
-jira:
-    user:
-        email: drago.mazic.2853@gmail.com
-        pass: kEpqHiGXTe2HFKky3yAk9520
-    team:
-        url: https://team-16684562158657.atlassian.net/
-
-
-emailPassword: drago.mazic.2853@gmail.com:kEpqHiGXTe2HFKky3yAk9520
 secret: test
 tokenExpirationDay: 2
