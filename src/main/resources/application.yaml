@@ -7,6 +7,12 @@ spring:
         hibernate.ddl-auto: none
         generate-ddl: true
         show-sql: false
+    config:
+        import: optional:secrets.yml
 
 secret: test
 tokenExpirationDay: 2
+
+ms:
+    cors:
+        origins: "*"

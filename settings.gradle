@@ -1,1 +1,3 @@
 rootProject.name = 'demo'
+
+include("m2z-security")

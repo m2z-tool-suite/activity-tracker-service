@@ -1,7 +1,6 @@
 package com.m2z.activity.tracker.config;
 
 import lombok.SneakyThrows;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.Cipher;
@@ -10,7 +9,7 @@ import javax.crypto.spec.SecretKeySpec;
 import java.util.Base64;
 
 @Service
-public class CryptUtils implements PasswordEncoder {
+public class CryptUtils {
 
     private static final String ALGORITHM = "Blowfish";
     private static final String MODE = "Blowfish/CBC/PKCS5Padding";
@@ -33,15 +32,5 @@ public class CryptUtils implements PasswordEncoder {
         Cipher cipher = Cipher.getInstance(MODE);
         cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, new IvParameterSpec(IV.getBytes()));
         return new String(cipher.doFinal(values));
-    }
-
-    @Override
-    public String encode(CharSequence rawPassword) {
-        return encrypt(String.valueOf(rawPassword));
-    }
-
-    @Override
-    public boolean matches(CharSequence rawPassword, String encodedPassword) {
-        return encrypt(String.valueOf(rawPassword)).equals(encodedPassword);
     }
 }

@@ -27,7 +27,6 @@ public class ExternalTrackerService extends BaseService<ExternalTracker, Externa
     @Override
     public ExternalTrackerDto save(ExternalTracker externalTracker) {
 
-        externalTracker.setPassword(CryptUtils.encrypt(externalTracker.getPassword()));
         externalTracker.setPrivateKey(CryptUtils.encrypt(externalTracker.getPrivateKey()));
 
         if(externalTracker.getIsActive()){

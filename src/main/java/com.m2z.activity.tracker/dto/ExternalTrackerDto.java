@@ -17,7 +17,6 @@ public class ExternalTrackerDto {
     private String extProjectAdminId;
     private String privateKey;
     private String email;
-    private String password;
     private Boolean isActive;
 
     public ExternalTrackerDto(ExternalTracker element) {
@@ -28,7 +27,6 @@ public class ExternalTrackerDto {
         extProjectAdminId = element.getExtProjectAdminId();
         privateKey = element.getPrivateKey();
         email = element.getEmail();
-        password = element.getPassword();
         isActive = element.getIsActive();
     }
 }
