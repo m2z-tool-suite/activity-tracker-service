@@ -5,13 +5,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Map;
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProjectDto {
-    private String key;
+    private String id;
     private String name;
+    private String description;
     private String projectTypeKey = "software";
     private String leadAccountId = "63729ee5f6c85b343c06a2c8";
     private String assigneeType = "PROJECT_LEAD";
@@ -20,8 +23,15 @@ public class ProjectDto {
         this.name = sastojak.getName();
     }
 
-    public ProjectDto(String key, String name) {
-        this.key = key;
+    public ProjectDto(Map<String, String> mapResponse) {
+        id = mapResponse.get("key");
+        name = mapResponse.get("name");
+        description = mapResponse.get("description");
+        projectTypeKey = mapResponse.get("projectTypeKey");
+    }
+
+    public ProjectDto(String id, String name) {
+        this.id = id;
         this.name = name;
     }
 }

@@ -1,4 +1,15 @@
 spring:
+    data:
+        mongodb:
+            uri: mongodb://localhost:27017/report
+            database: report
+
+        arangodb:
+            host: localhost
+            port: 8529
+            database: _system
+            user: root
+            password: root
     datasource:
         url: jdbc:mysql://localhost:3306/activity-tracker?createDatabaseIfNotExist=true
         username: root
@@ -8,7 +19,7 @@ spring:
         generate-ddl: true
         show-sql: false
     config:
-        import: optional:secrets.yml
+        import: optional:secrets.yaml
 
 secret: test
 tokenExpirationDay: 2

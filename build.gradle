@@ -31,11 +31,18 @@ dependencies {
 	implementation 'com.google.collections:google-collections:1.0'
 	implementation 'com.atlassian.jira:jira-rest-java-client-core:5.2.4'
 	implementation 'com.google.oauth-client:google-oauth-client:1.22.0'
+	implementation("de.huxhorn.sulky:de.huxhorn.sulky.ulid:8.3.0")
 	implementation 'com.mysql:mysql-connector-j:8.0.31'
 	implementation 'com.google.http-client:google-http-client-jackson2:1.11.0-beta'
 	implementation 'org.json:json:20160810'
+    implementation project(path: ':m2z-security')
 	implementation(project(":m2z-security"))
-    compileOnly 'org.projectlombok:lombok:1.18.24'
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+	implementation group: 'com.arangodb', name: 'arangodb-spring-data', version: '3.10.0'
+
+
+
+	compileOnly 'org.projectlombok:lombok:1.18.24'
 	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
 
 //	compileOnly 'com.atlassian.fugue:fugue:4.7.1'

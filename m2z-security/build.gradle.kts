@@ -31,6 +31,7 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:1.18.24")
     annotationProcessor ("org.springframework.boot:spring-boot-configuration-processor:3.0.0")
     implementation("org.springframework.boot:spring-boot-starter-web:3.0.0")
+
 }
 
 tasks.withType<Test> {

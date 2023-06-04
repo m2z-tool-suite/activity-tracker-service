@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class ExternalTrackerDto {
     private Long id;
+    private String name;
     private String consumerKey;
     private String homeUrl;
     private String teamUrl;
@@ -21,6 +22,7 @@ public class ExternalTrackerDto {
 
     public ExternalTrackerDto(ExternalTracker element) {
         id = element.getId();
+        name = element.getName();
         consumerKey = element.getConsumerKey();
         homeUrl = element.getHomeUrl();
         teamUrl = element.getTeamUrl();

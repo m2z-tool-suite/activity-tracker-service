@@ -29,6 +29,7 @@ public class ExternalTrackerService extends BaseService<ExternalTracker, Externa
 
         externalTracker.setPrivateKey(CryptUtils.encrypt(externalTracker.getPrivateKey()));
 
+        externalTracker.setEmail(externalTracker.getEmail().replace("\\", ""));
         if(externalTracker.getIsActive()){
             List<ExternalTracker> allByEmail = repository.findAllByEmail(externalTracker.getEmail());
             allByEmail.removeIf(o -> !o.getHomeUrl().equalsIgnoreCase(externalTracker.getHomeUrl()) || !o.getTeamUrl().equalsIgnoreCase(externalTracker.getTeamUrl()));
@@ -41,6 +42,7 @@ public class ExternalTrackerService extends BaseService<ExternalTracker, Externa
 
     public ExternalTrackerDto update(ExternalTracker externalTracker, ExternalTracker updateObject) {
 
+        updateObject.setEmail(updateObject.getEmail().replace("\\", ""));
         externalTracker.update(updateObject);
         if(updateObject.getIsActive()){
             List<ExternalTracker> allByEmail = repository.findAllByEmail(updateObject.getEmail());

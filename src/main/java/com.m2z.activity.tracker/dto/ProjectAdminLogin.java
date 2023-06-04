@@ -1,5 +1,6 @@
 package com.m2z.activity.tracker.dto;
 
+import com.m2z.activity.tracker.entity.Employee;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,10 +11,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class ProjectAdminLogin {
     private String email;
-    private String password;
 
-    public ProjectAdminLogin(ProjectAdminDto adminDto) {
+    public ProjectAdminLogin(Employee adminDto) {
         email = adminDto.getEmail();
-        password = adminDto.getPassword();
     }
 }
