@@ -1,0 +1,61 @@
+{
+  "_id": "meta-graph",
+  "graph_name": "parameter_project",
+  "vertex_collections": [
+    {
+      "key_prefix": "month",
+      "props": []
+    },
+    {
+      "key_prefix": "project",
+      "props": [
+        "project_id",
+        "project_description",
+        "project_name"
+      ]
+    },
+    {
+      "key_prefix": "employee",
+      "props": [
+        "employee_id",
+        "employee_display_name"
+      ]
+    },
+    {
+      "key_prefix": "ticket",
+      "props": [
+        "ticket_id",
+        "ticket_summary",
+        "ticket_assignee_id",
+        "ticket_assignee_display_name",
+        "ticket_project_id",
+        "ticket_created_by",
+        "ticket_created_by_email",
+        "ticket_date_created",
+        "ticket_date_updated",
+        "ticket_description",
+        "ticket_estimated_start_date",
+        "ticket_estimated_end_date",
+        "employee_display_name"
+      ]
+    }
+  ],
+  "edge_definitions": [
+    {
+      "from_vertex_collections": "month",
+      "to_vertex_collections": "project"
+    },
+    {
+      "from_vertex_collections": "project",
+      "to_vertex_collections": "employee"
+    },
+    {
+      "from_vertex_collections": "project",
+      "to_vertex_collections": "ticket"
+    },
+    {
+      "from_vertex_collections": "ticket",
+      "to_vertex_collections": "employee"
+    }
+  ]
+}

@@ -39,7 +39,8 @@ dependencies {
 	implementation(project(":m2z-security"))
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	implementation group: 'com.arangodb', name: 'arangodb-spring-data', version: '3.10.0'
-
+	implementation group: 'com.arangodb', name: 'arangodb-spring-boot-starter', version: '2.7-0'
+	implementation group: 'com.arangodb', name: 'arangodb-java-driver', version: '7.1.0'
 
 
 	compileOnly 'org.projectlombok:lombok:1.18.24'

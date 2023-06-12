@@ -16,6 +16,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static com.m2z.activity.tracker.service.impl.UtilsMethods.getBasicAuth;
@@ -73,9 +74,12 @@ public class TicketService extends BaseService<Ticket, TicketDto, String> {
         List<TicketDto> collect = (List<TicketDto>) issues.stream().map(issue -> new TicketDto((Map) issue)).collect(Collectors.toList());
 
         collect.forEach(ticketDto -> {
-            Ticket ticket = ticketRepository.getById(ticketDto.getId());
-            ticketDto.setEstimatedStartDate(ticket.getEstimatedStartDate());
-            ticketDto.setEstimatedEndDate(ticket.getEstimatedEndDate());
+            Optional<Ticket> ticketOptional = ticketRepository.findById(ticketDto.getId());
+            if(ticketOptional.isPresent()) {
+                Ticket ticket = ticketOptional.get();
+                ticketDto.setEstimatedStartDate(ticket.getEstimatedStartDate());
+                ticketDto.setEstimatedEndDate(ticket.getEstimatedEndDate());
+            }
         });
 
         return collect;
@@ -114,8 +118,8 @@ public class TicketService extends BaseService<Ticket, TicketDto, String> {
         ticketEntity.setDescription(ticket.getDescription());
         ticketEntity.setProject(projectRepository.getById(projectId));
         ticketEntity.setAssignee(employeeRepository.getById(ticket.getSelectedAssigneeId()));
-        ticketEntity.setEstimatedStartDate(ticket.getEstimatedStartDate().split("T")[0]);
-        ticketEntity.setEstimatedEndDate(ticket.getEstimatedEndDate().split("T")[0]);
+        ticketEntity.setEstimatedStartDate(ticket.getEstimatedStartDate());
+        ticketEntity.setEstimatedEndDate(ticket.getEstimatedEndDate());
 
         repository.save(ticketEntity);
 
@@ -148,6 +152,8 @@ public class TicketService extends BaseService<Ticket, TicketDto, String> {
         ticketEntity.setCreatedBy(ticket.getLoggedUserEmail());
         ticketEntity.setSummary(ticket.getSummary());
         ticketEntity.setDescription(ticket.getDescription());
+        ticketEntity.setEstimatedStartDate(ticket.getEstimatedStartDate());
+        ticketEntity.setEstimatedEndDate(ticket.getEstimatedEndDate());
         ticketEntity.setType(ticketTypeRepository.getByName(ticket.getTypeName()));
 
         repository.save(ticketEntity);

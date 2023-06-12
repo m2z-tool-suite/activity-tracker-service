@@ -27,3 +27,10 @@ tokenExpirationDay: 2
 ms:
     cors:
         origins: "*"
+
+# ArangoDB configuration
+arangodb:
+    hosts: localhost
+    port: 8529
+    user: root
+    password: root

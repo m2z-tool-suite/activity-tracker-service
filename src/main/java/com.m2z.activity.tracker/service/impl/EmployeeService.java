@@ -74,8 +74,8 @@ public class EmployeeService extends BaseService<Employee, EmployeeDto, String> 
             if(byAccountId.isPresent()) {
                 Employee employee1 = byAccountId.get();
                 employee.setEmail(employee1.getEmail());
-                employee1.setFirstname(employee1.getFirstname());
-                employee1.setLastname(employee1.getLastname());
+                employee.setFirstname(employee1.getFirstname());
+                employee.setLastname(employee1.getLastname());
                 collect1.add(employee);
             }
         });
